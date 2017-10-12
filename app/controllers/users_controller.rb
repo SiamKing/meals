@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    # render json: @users, include: { meals: [:title] }
   end
 
   # GET /users/1

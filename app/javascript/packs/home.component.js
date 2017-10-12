@@ -2,9 +2,9 @@ import HomeController from './home.controller';
 
 const HomeComponent = {
   controller: HomeController,
-  controllerAs: 'vm',
-  template: `<div ng-repeat="user in vm.users">
-              <h2>{{user}}</h2>
+  controllerAs: '$ctrl',
+  template: `<div ng-repeat="user in $ctrl.users">
+              <h2>{{user.name}}</h2>
             </div>`
 }
 

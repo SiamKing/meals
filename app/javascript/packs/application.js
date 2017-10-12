@@ -8,18 +8,18 @@
 // layout file, like app/views/layouts/application.html.erb
 import angular from 'angular';
 import uirouter from 'angular-ui-router';
-import ngResource from 'angular-resource';
 import HomeComponent from './home.component';
 
-const meals = angular.module('meals', [uirouter, ngResource])
+
+const meals = angular.module('meals', [uirouter])
   .component('home', HomeComponent)
   .config(($stateProvider) => {
     $stateProvider
       .state('home', {
         url: '/',
-        component: 'home'
+        component: 'home' 
 
       })
-  })
+  });
 
 export default meals;

@@ -1,22 +1,22 @@
-import ngResource from 'angular-resource';
-
 class HomeController {
-  constructor($resource) {
-    this.$resource = $resource;
-
+  constructor($http) {
+    'ngInject';
+    this.$http = $http;
   }
 
-  users() {
-    $resource.get('/users')
-      .then(response => {
-        console.log(response)
-        return response.data
-      })
+  $onInit = () => {
+    this.$http({
+      method: 'GET',
+      url: '/users.json'
+    })
+    .then(res => {
+      console.log(res.data)
+      this.users = res.data
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
-
-
 }
-
-HomeController.$inject = ["ngResource"];
 
 export default HomeController;
